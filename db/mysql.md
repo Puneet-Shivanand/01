@@ -78,5 +78,18 @@ truncate
 
 ```
 truncate <table name>; # make table empty
-```
 
+
+        ```
+        
+password reset
+---------
+```
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe --skip-grant-tables
+mysql -uroot
+use mysql;
+update user set password=PASSWORD("mynewpassword") where User='root';
+flush privileges
+
+```
